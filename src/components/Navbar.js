@@ -16,6 +16,15 @@ class Navbar extends Component {
             style={{ width: "5rem", height: "5rem" }}
           />
         </Link>
+        <span className="nav-item ml-5">
+          <a
+            href="https://github.com/yilmazbingo/react-docker-contextApi"
+            className="ml-auto"
+            target="_blank"
+          >
+            <i class="fab fa-github fa-3x"></i>
+          </a>
+        </span>
         <ul className="navbar align-items-center ">
           <li className="nav-item ml-5">
             <Link to="/products" className="nav-link">
@@ -23,11 +32,7 @@ class Navbar extends Component {
             </Link>
           </li>
         </ul>
-        <Link to="/cart" className="ml-auto">
-          <span className="nav-item ml-5">
-            <i class="fab fa-github fa-3x"></i>
-          </span>
-        </Link>
+
         <Link to="/cart" className="ml-auto">
           <ButtonContainer>
             <span className="mr-2">
