@@ -49,6 +49,7 @@ module.exports = {
     // HistoryApiFallback tells devserver that we are going to be handling routing via our client side code.
     historyApiFallback: true,
     overlay: true,
+    port: 80,
   },
   plugins: [
     new HtmlWebPlugin({
