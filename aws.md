@@ -19,9 +19,17 @@ we have 2 options
 
 ## Running and Publishing App
 
-`sudo docker run -d -it --rm -p 80:3000 yilmazito/react-webpack-spa-shopping`
+`sudo docker run -d -it --rm -p 80:8080 yilmazito/react-webpack-spa-shopping` //wds at 8080
 `sudo docker ps`
 go to EC2 instance and check the ipv4 Public ip. At this moment if I run this it wont connect. this is a security feature. by default, your instance is basically disconnected from eveything. Only I can connect with ssh. this is controlled with security group. choose the instance, in security, you can see which security group it has been added. this group controls which traffic is allowed on our EC2 instance. check inbound and outbound rules. outbound rules control which traffic is allowed from the instance to somewhere else. by default everything is allowed. thats why `docker run` worked and installed image from docker hub. EC2 was allowed to connect to dockerhub. But for inbound rules, there is only port 22 is open which is the ssh port. Source `0.0.0.0/0` says it is open the everyone. that is why key file is important. only owner of these keys can access. Alternatively you could narrow down the source to your local machine's ip. But we need to allow HTTP to go in this instance which is listenint to port 3000. Edit inbound rules, add Http, default port is 80, source is anywhere
+
+## Managing and Updating App
+
+Rebuild the image and push it to dockerhub again. use this updated server on remote server. Whenever you `docker run`, it checks whether it already has this image locally. it does not check if there is more updated remote image available.
+`sudo docker pull yilmazito/react-webpack-spa-shopping`
+`sudo docker run -d -it --rm -p 80:3000 yilmazito/react-webpack-spa-shopping`
+
+IN this approach of deployment, we are responsible for everything.
 
 - region is a cluster of data centers. most aws services are region-scoped. you can use a service in a specific region and if you use a same service in another region, you will not have your data. each region can have many availability zones AZ. usually 3 AZ per region, min 2, max 6. Each Az is one or more discrete data centers. All AZ's are separated from each other. they are still connected with high bandwith, ultra-low latency networking. We have connectivity between all available zones. Low latency describes a computer network that is optimized to process a very high volume of data messages with minimal delay (latency.
 - Roles are in IAM, we give them to machines. Users is for a physical person, and roles is going to be for a machine. Policies are JSON and defines what Users, Groups, ROles can and cannot do. IAM has a global view. When you create a user, group or a role, it will be across all the regions. IAM has predefined policies. give users the minimal amount of permission -least-privilege-principles. IAM Federation is for big enterprises, they integrate their own repository of users with IAM. Identity Federation uses SAML standard.

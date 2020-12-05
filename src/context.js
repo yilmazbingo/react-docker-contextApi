@@ -29,12 +29,7 @@ class ProductProvider extends Component {
       return { products };
     });
   };
-  //very important
-  // getItem = (id, productsArr) => {
-  //   const product = productsArr.find((item) => item.id === id);
-  //   console.log("product in getItem", product);
-  //   return product;
-  // };
+
   getItem = (id) => {
     const product = this.state.products.find((item) => item.id === id);
     return product;

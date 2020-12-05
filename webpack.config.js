@@ -44,19 +44,11 @@ module.exports = {
     ],
   },
   devServer: {
-    //contentBase lets tell the devs server where it can find our public file.
     contentBase: path.join(__dirname, "public"),
-    // HistoryApiFallback tells devserver that we are going to be handling routing via our client side code.
     historyApiFallback: true,
     overlay: true,
-    port: 80,
   },
-  plugins: [
-    new HtmlWebPlugin({
-      template: path.resolve(__dirname, "src", "index.html"),
-    }),
-    new CopyWebpackPlugin({ patterns: [{ from: "assets" }] }),
-  ],
+  plugins: [new CopyWebpackPlugin({ patterns: [{ from: "assets" }] })],
 };
 
 // {
