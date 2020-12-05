@@ -22,7 +22,7 @@ class Navbar extends Component {
             className="ml-auto"
             target="_blank"
           >
-            <i class="fab fa-github fa-3x"></i>
+            <i className="fab fa-github fa-3x"></i>
           </a>
         </span>
         <ul className="navbar align-items-center ">

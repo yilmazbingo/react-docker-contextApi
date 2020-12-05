@@ -27,7 +27,7 @@ go to EC2 instance and check the ipv4 Public ip. At this moment if I run this it
 
 Rebuild the image and push it to dockerhub again. use this updated server on remote server. Whenever you `docker run`, it checks whether it already has this image locally. it does not check if there is more updated remote image available.
 `sudo docker pull yilmazito/react-webpack-spa-shopping`
-`sudo docker run -d -it --rm -p 80:3000 yilmazito/react-webpack-spa-shopping`
+`sudo docker run -d -it --rm -p 80:8080 yilmazito/react-webpack-spa-shopping`
 
 IN this approach of deployment, we are responsible for everything.
 

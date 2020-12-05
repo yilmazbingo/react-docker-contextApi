@@ -28,12 +28,21 @@ class Product extends Component {
                     }}
                     disabled={inCart ? true : false}
                   >
-                    {inCart ? (
+                    {/* {inCart ? (
                       <p className="text-center" disabled>
                         In Cart
                       </p>
                     ) : (
                       <i className="fas fa-cart-plus" />
+                    )} */}
+                    {inCart ? (
+                      <p className="text-capitalize mb-0" disabled>
+                        in cart
+                      </p>
+                    ) : (
+                      <div>
+                        <i className="fas fa-cart-plus" />
+                      </div>
                     )}
                   </button>
                 </div>

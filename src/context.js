@@ -41,18 +41,36 @@ class ProductProvider extends Component {
     });
   };
 
+  // addToCart = (id) => {
+  //   let tempProducts = [...this.state.products];
+  //   console.log("temp", tempProducts);
+  //   const item = this.getItem(id);
+  //   console.log("item", item);
+  //   const index = tempProducts.indexOf(this.getItem(id));
+  //   console.log("index", index);
+  //   const product = tempProducts[index];
+  //   product.inCart = true;
+  //   product.count = 1;
+  //   const price = product.price;
+  //   product.total = price;
+  //   this.setState(() => {
+  //     return {
+  //       products: [...tempProducts],
+  //       cart: [...this.state.cart, product],
+  //       detailProduct: { ...product },
+  //     };
+  //   }, this.addTotals);
+  // };
   addToCart = (id) => {
     let tempProducts = [...this.state.products];
-    console.log("temp", tempProducts);
-    const item = this.getItem(id, tempProducts);
-    console.log("item", item);
     const index = tempProducts.indexOf(this.getItem(id));
-    console.log("index", index);
-    const product = tempProducts[index];
+    let product = tempProducts[index];
+
     product.inCart = true;
     product.count = 1;
     const price = product.price;
     product.total = price;
+
     this.setState(() => {
       return {
         products: [...tempProducts],
@@ -61,30 +79,9 @@ class ProductProvider extends Component {
       };
     }, this.addTotals);
   };
-  // addToCart = (id) => {
-  //   let tempProducts = [...this.state.products];
-  //   console.log("tempProducts", tempProducts);
-  //   const index = tempProducts.indexOf(this.getItem(id));
-  //   console.log("index", index);
-  //   const product = tempProducts[index];
-  //   console.log("product", product);
-  //   product.inCart = true;
-  //   product.count = 1;
-  //   const price = product.price;
-  //   product.total = price;
-
-  //   this.setState(() => {
-  //     return {
-  //       products: [...tempProducts],
-  //       cart: [...this.state.cart, product],
-  //       detailProduct: { ...product },
-  //     };
-  //   }, this.addTotals());
-  // };
 
   openModal = (id) => {
-    const product = this.getItem(id, this.state.products);
-
+    const product = this.getItem(id);
     this.setState(() => {
       return { modalProduct: product, modalOpen: true };
     });

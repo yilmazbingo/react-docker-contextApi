@@ -12,6 +12,7 @@ module.exports = {
     path: path.join(__dirname, "dist"),
     publicPath: "/",
   },
+  devtool: "cheap-eval-source-map",
   module: {
     rules: [
       {
